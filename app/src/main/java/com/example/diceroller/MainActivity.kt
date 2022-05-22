@@ -18,9 +18,6 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener {  rollDice() }
         diceImage = findViewById(R.id.dice_image)
 
-        val countButton: Button = findViewById(R.id.count_button)
-        countButton.setOnClickListener { countUp() }
-
         val resetButton: Button = findViewById(R.id.reset_button)
         resetButton.setOnClickListener { reset() }
     }
@@ -38,28 +35,7 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableDice)
     }
 
-//    click listener for the countUp button.
-    private fun countUp(){
-        val resultText: TextView = findViewById(R.id.result_text)
-
-    // If text is the default "Hello World!" set that text to 1.
-    if(resultText.text == "A dice"){
-        resultText.text = "1"
-    }else{
-    // Otherwise, increment the number up to 6.
-    // The text value in resultText.text is an instance of the CharSequence class;
-    // it needs to be converted to a String object before it can be converted to an int.
-    var resultInt = resultText.text.toString().toInt()
-
-        if (resultInt < 6){
-            resultInt++
-            resultText.text = resultInt.toString()
-        }
-    }
-    }
-
     private fun reset(){
-        val resultText: TextView = findViewById(R.id.result_text)
-        resultText.text = "0"
+    diceImage.setImageResource(R.drawable.empty_dice)
     }
 }
